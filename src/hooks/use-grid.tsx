@@ -1,5 +1,5 @@
-import React, { createContext, FC, useCallback, useContext, useState } from 'react';
-import { generateGrid } from '../utils';
+import React, { createContext, FC, useCallback, useContext, useEffect, useState } from 'react';
+const worker = new Worker(new URL('../grid-worker.ts', import.meta.url));
 
 interface GridData {
   grid: number[][];
@@ -17,11 +17,22 @@ export const GridProvider: FC = ({ children }) => {
   const createGrid = useCallback(
     (gridX, gridY) => {
       setGridInProgress(true);
-      setGrid(generateGrid(gridX, gridY))
-      setGridInProgress(false);
+      worker.postMessage({ gridX, gridY });
     },
     [],
   );
+
+  useEffect(() => {
+    worker.onmessage = ({ data: { grid } }) => {
+      setGrid(grid);
+      setGridInProgress(false);
+    };
+
+    return () => {
+      worker.terminate();
+    };
+  }, []);
+
 
   return (
     <GridContext.Provider value={{ grid, createGrid, gridInProgress }}>

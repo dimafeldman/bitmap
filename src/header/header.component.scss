@@ -8,7 +8,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: rgb(192, 192, 192);
+  background: $grey3;
   border: 2px #fff solid;
   border-top-color: $grey1;
   border-left-color: $grey1;
@@ -20,11 +20,12 @@
 
   label {
     margin-right: 8px;
+    font-size: 16px;
   }
 }
 
 .counter {
-  width: 50px;
+  width: 80px;
   height: 25px;
   line-height: 20px;
   background: #000;
@@ -40,7 +41,6 @@
 }
 
 input[type="number"].counter {
-  width: 80px;
   -moz-appearance: textfield;
 
   &::-webkit-outer-spin-button,
@@ -81,4 +81,29 @@ input[type="number"].counter {
 
 .faceHappy:before {
   background-position: -34px 17px;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .header {
+    height: 120px;
+    padding: 0 16px;
+  }
+
+  .counter-wrap {
+    flex-direction: column;
+
+    label {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .counter {
+      height: 30px;
+    }
+  }
+
+  .face {
+    transform: scale(2);
+  }
 }

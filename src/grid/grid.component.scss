@@ -1,6 +1,10 @@
 @import "../vars";
 
 .grid-content {
+  border: 2px #fff solid;
+  border-top-color: $grey1;
+  border-left-color: $grey1;
+
   .grid-row {
     display: flex;
   }
@@ -8,21 +12,26 @@
   .grid-cell {
     width: 15px;
     height: 15px;
-    font-size: 14px;
     line-height: 16px;
     font-weight: 800;
     background: $grey2;
-    border: 2px #fff solid;
-    border-right-color: $grey1;
-    border-bottom-color: $grey1;
-    user-select: none;
-  }
-
-  .grid-cell-active {
-    border-width: 1px;
+    border: 1px #fff solid;
     border-bottom: 0;
     border-right: 0;
     border-top-color: $grey1;
     border-left-color: $grey1;
+    user-select: none;
+
+    @media only screen and (max-width: 480px) {
+      width: 8px;
+      height: 8px;
+      line-height: 6px;
+    }
+  }
+
+  .grid-cell-active {
+    border-width: 2px;
+    border-right-color: $grey1;
+    border-bottom-color: $grey1;
   }
 }

@@ -1015,7 +1015,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.16.7"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@babel/runtime/-/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
   integrity sha1-A/+Z9kEGWIycQDxuy4w7r7vf8fo=
@@ -1715,6 +1715,18 @@
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/lodash.debounce@^4.0.6":
+  version "4.0.6"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/lodash.debounce/-/lodash.debounce-4.0.6.tgz#c5a2326cd3efc46566c47e4c0aa248dc0ee57d60"
+  integrity sha1-xaIybNPvxGVmxH5MCqJI3A7lfWA=
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.178"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
+  integrity sha1-NB9tIkfbUo1KE927N0vNyAQG9Pg=
+
 "@types/mime@^1":
   version "1.3.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
@@ -1764,6 +1776,13 @@
   version "17.0.11"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
   integrity sha1-4ercPF6GvbX3aE4AJ0riKOe8xGY=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-window@^1.8.5":
+  version "1.8.5"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/react-window/-/react-window-1.8.5.tgz#285fcc5cea703eef78d90f499e1457e9b5c02fc1"
+  integrity sha1-KF/MXOpwPu942Q9JnhRX6bXAL8E=
   dependencies:
     "@types/react" "*"
 
@@ -5774,6 +5793,11 @@ memfs@^3.1.2, memfs@^3.2.2:
   dependencies:
     fs-monkey "1.0.3"
 
+"memoize-one@>=3.1.1 <6":
+  version "5.2.1"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha1-gzeqPEM1WBg57AHD1ZQJDOvo8A4=
+
 merge-descriptors@1.0.1:
   version "1.0.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
@@ -7103,6 +7127,14 @@ react-scripts@5.0.0:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-window@^1.8.6:
+  version "1.8.6"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
+  integrity sha1-0BGVCsZDqZQRhjJmWq0MY4LioRI=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react@^17.0.2:
   version "17.0.2"

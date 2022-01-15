@@ -1,6 +1,10 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 
-interface Props {}
-export const GridCell: FC<Props> = () => {
-  return <div className="grid-cell" />;
+interface Props {
+  columnIndex: number;
+  rowIndex: number;
+  style: CSSProperties;
+}
+export const GridCell: FC<Props> = ({ style}) => {
+  return <div style={style} className="grid-cell" />;
 };

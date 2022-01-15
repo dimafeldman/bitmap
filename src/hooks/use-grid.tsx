@@ -5,6 +5,7 @@ interface GridData {
   grid: number[][];
   gridInProgress: boolean;
   createGrid: (gridX: number, gridY: number) => void;
+  gridSize: { x: number, y: number };
 }
 
 const GridContext = createContext({} as GridData);
@@ -13,11 +14,13 @@ export const useGrid = () => useContext(GridContext);
 export const GridProvider: FC = ({ children }) => {
   const [grid, setGrid] = useState([] as number[][]);
   const [gridInProgress, setGridInProgress] = useState(false);
+  const [gridSize, setGridSize] = useState({ x: 0, y: 0});
 
   const createGrid = useCallback(
-    (gridX, gridY) => {
+    (x, y) => {
       setGridInProgress(true);
-      worker.postMessage({ gridX, gridY });
+      setGridSize({ x, y });
+      worker.postMessage({ x, y });
     },
     [],
   );
@@ -35,7 +38,7 @@ export const GridProvider: FC = ({ children }) => {
 
 
   return (
-    <GridContext.Provider value={{ grid, createGrid, gridInProgress }}>
+    <GridContext.Provider value={{ grid, createGrid, gridInProgress, gridSize }}>
       {children}
     </GridContext.Provider>
   );

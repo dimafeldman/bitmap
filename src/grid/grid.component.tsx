@@ -1,29 +1,30 @@
 import React, { FC } from 'react';
 import { GridCell } from './grid-cell.component';
+import { FixedSizeGrid as Grid } from 'react-window';
 import './grid.component.scss';
 
 interface Props {
   grid: number[][];
+  gridSize: { x: number, y: number }
+  gridWidth: number;
+  gridHeight: number;
 }
-export const GridComponent: FC<Props> = ({ grid }) => {
+
+export const GridComponent: FC<Props> = ({ gridSize, gridWidth, gridHeight }) => {
   return (
     <div className="grid">
-      <div className="grid-content">
-        {grid.map((row, x) => {
-          return (
-            <div key={x} className="grid-row">
-              {row.map((item: any, y: number) => {
-                const cellIndex = `${x}-${y}`;
+        <Grid
+          columnCount={gridSize.x}
+          rowCount={gridSize.y}
+          height={gridHeight}
+          width={gridWidth}
+          columnWidth={15}
+          rowHeight={15}
+          className="grid-content"
+        >
+          {GridCell}
+        </Grid>
 
-                return (
-                  <GridCell
-                    key={cellIndex}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-    </div>);
+    </div>
+  );
 };

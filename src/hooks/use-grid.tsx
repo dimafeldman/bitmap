@@ -20,7 +20,7 @@ export const GridProvider: FC = ({ children }) => {
     (x, y) => {
       setGridInProgress(true);
       setGridSize({ x, y });
-      worker.postMessage({ x, y });
+      // worker.postMessage({ x, y });
     },
     [],
   );

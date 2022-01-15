@@ -1,0 +1,24 @@
+@import 'reset.css';
+@import 'vars.scss';
+body {
+  margin: 0;
+  font-family: 'Orbitron',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(192, 192, 192);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .grid {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+}

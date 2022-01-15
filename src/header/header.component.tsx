@@ -15,8 +15,8 @@ export const HeaderComponent: FC<Props> = ({ gridX, gridY, islandsCount, onChang
     <div className="header">
       <div className="counter-wrap">
         <label>Grid size:</label>
-        <input className="counter" type="number" value={gridX} onChange={onChangeX} pattern="\d*" />
-        <input className="counter" type="number" value={gridY} onChange={onChangeY} pattern="\d*" />
+        <input className="counter" type="text" value={gridX} onChange={onChangeX} pattern="\d*" />
+        <input className="counter" type="text" value={gridY} onChange={onChangeY} pattern="\d*" />
       </div>
       <div className="face" onClick={onFaceClick} />
       <div className="counter-wrap">

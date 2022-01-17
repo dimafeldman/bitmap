@@ -8,20 +8,22 @@ interface Props {
   onChangeX: (e: ChangeEvent) => void;
   onChangeY: (e: ChangeEvent) => void;
   onFaceClick: () => void;
+  gridInProgress: boolean;
 }
 
-export const HeaderComponent: FC<Props> = ({ gridX, gridY, islandsCount, onChangeX, onChangeY, onFaceClick }) => {
+export const HeaderComponent: FC<Props> = ({ gridX, gridY, islandsCount, onChangeX, onChangeY, onFaceClick, gridInProgress }) => {
+  const faceStyle = gridInProgress ? `${styles.face} ${styles.faceInProgress}` : styles.face;
   return (
     <div className={styles.header}>
       <div className={styles.counterWrap}>
         <label>Grid size:</label>
-        <input className={styles.counter} type="text" value={gridX} onChange={onChangeX} pattern="\d*" />
-        <input className={styles.counter} type="text" value={gridY} onChange={onChangeY} pattern="\d*" />
+        <input className={styles.counter} type="text" value={gridX} onChange={onChangeX} pattern="\d*" disabled={gridInProgress} />
+        <input className={styles.counter} type="text" value={gridY} onChange={onChangeY} pattern="\d*" disabled={gridInProgress} />
       </div>
-      <div className={styles.face} onClick={onFaceClick} />
+      <div className={faceStyle} onClick={onFaceClick} />
       <div className={styles.counterWrap}>
         <label>Islands:</label>
-        <div className={styles.counter}>{islandsCount}</div>
+        <div className={styles.counter}>{gridInProgress ? '...' : islandsCount}</div>
       </div>
     </div>
   );

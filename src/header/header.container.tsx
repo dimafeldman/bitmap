@@ -5,36 +5,36 @@ import { useGrid } from '../hooks/use-grid';
 interface Props {}
 export const Header: FC<Props> = () => {
   const islandsCount = 10;
-  const { createGrid, gridSize } = useGrid();
+  const { createGrid, gridSize, gridInProgress } = useGrid();
   const [gridX, setGridX] = useState(gridSize.x);
   const [gridY, setGridY] = useState(gridSize.y);
 
   const handleChangeX = useCallback((e) => {
     const sanitized = sanitizeInput(e.target.value);
-    if (sanitized) {
+    if (sanitized && !gridInProgress) {
       setGridX(sanitized);
     }
-  }, [setGridX]);
+  }, [setGridX, gridInProgress]);
 
   const handleChangeY = useCallback((e) => {
     const sanitized = sanitizeInput(e.target.value);
-    if (sanitized) {
+    if (sanitized && !gridInProgress) {
       setGridY(sanitized);
     }
-  }, [setGridY]);
+  }, [setGridY, gridInProgress]);
 
   const handleFaceClick = useCallback(
     () => {
-      createGrid(gridX, gridY);
+      if (!gridInProgress) {
+        createGrid(gridX, gridY);
+      }
     },
-    [createGrid, gridX, gridY],
+    [createGrid, gridInProgress, gridX, gridY],
   );
 
   useEffect(() => {
     createGrid(gridX, gridY);
   }, []);
-
-
 
   return (
     <HeaderComponent
@@ -44,6 +44,7 @@ export const Header: FC<Props> = () => {
       onChangeX={handleChangeX}
       onChangeY={handleChangeY}
       onFaceClick={handleFaceClick}
+      gridInProgress={gridInProgress}
     />
   );
 };

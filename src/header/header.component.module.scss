@@ -12,7 +12,7 @@
   border: 2px #fff solid;
   border-top-color: $grey1;
   border-left-color: $grey1;
-
+  flex-shrink: 0;
 
   @media only screen and (max-width: 480px) {
     height: 120px;
@@ -54,7 +54,6 @@
   border-top-color: $grey1;
   border-left-color: $grey1;
 
-
   @media only screen and (max-width: 480px) {
     height: 30px;
   }
@@ -90,6 +89,10 @@
 
 .faceSad:before {
   background-position: -17px 17px;
+}
+
+.faceInProgress:before {
+  background-position: 0 -17px;
 }
 
 .faceHappy:before {

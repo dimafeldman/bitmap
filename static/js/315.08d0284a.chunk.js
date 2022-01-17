@@ -1,0 +1,2 @@
+!function(){"use strict";self.onmessage=function(r){var a=r.data,t=function(r,a,t){for(var n=[],o=0;o<r;o++){n[o]=[];for(var s=0;s<a;s++)n[o][s]=Math.random()<t?1:0}return n}(a.x,a.y,a.probability);self.postMessage({grid:t})}}();
+//# sourceMappingURL=315.08d0284a.chunk.js.map

@@ -1,2 +1,0 @@
-!function(){"use strict";self.onmessage=function(e){var s=e.data,n=function(e,s){for(var n=[],r=new Array(e).fill(0),t=0;t<s;t++)n[t]=r.slice();return n}(s.x,s.y);self.postMessage({grid:n})}}();
-//# sourceMappingURL=315.07ec46b2.chunk.js.map

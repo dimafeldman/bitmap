@@ -6,6 +6,7 @@ interface GridData {
   gridInProgress: boolean;
   createGrid: (gridX: number, gridY: number) => void;
   gridSize: { x: number, y: number };
+  gridValueAtIndex: (x: number, y: number) => number;
 }
 
 const GridContext = createContext({} as GridData);
@@ -15,14 +16,22 @@ export const GridProvider: FC = ({ children }) => {
   const [grid, setGrid] = useState([] as number[][]);
   const [gridInProgress, setGridInProgress] = useState(false);
   const [gridSize, setGridSize] = useState({ x: 0, y: 0});
+  const [probability, setProbability] = useState(0.1);
 
   const createGrid = useCallback(
     (x, y) => {
       setGridInProgress(true);
       setGridSize({ x, y });
-      // worker.postMessage({ x, y });
+      worker.postMessage({ x, y, probability });
     },
-    [],
+    [probability],
+  );
+
+  const gridValueAtIndex = useCallback(
+    (x, y) =>
+      grid?.[x]?.[y] || 0
+    ,
+    [grid],
   );
 
   useEffect(() => {
@@ -38,7 +47,7 @@ export const GridProvider: FC = ({ children }) => {
 
 
   return (
-    <GridContext.Provider value={{ grid, createGrid, gridInProgress, gridSize }}>
+    <GridContext.Provider value={{ grid, createGrid, gridInProgress, gridSize, gridValueAtIndex }}>
       {children}
     </GridContext.Provider>
   );

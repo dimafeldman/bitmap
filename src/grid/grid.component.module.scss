@@ -25,7 +25,8 @@
 }
 
 .gridCellActive {
-  border-width: 2px;
+  background: rgb(189, 189, 189);
+  border: 2px #fff solid;
   border-right-color: $grey1;
   border-bottom-color: $grey1;
 }

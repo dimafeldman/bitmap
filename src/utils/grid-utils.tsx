@@ -1,9 +1,11 @@
-export function generateGrid(gridX: number, gridY: number): number[][] {
+export function generateGrid(gridX: number, gridY: number, probability: number): number[][] {
   const gridItems: number[][] = [];
-  const col = new Array(gridX).fill(0);
 
   for (let i = 0; i < gridY; i++) {
-    gridItems[i] = col.slice();
+    gridItems[i] = [];
+    for (let j = 0; j < gridX; j++) {
+      gridItems[i][j] = Math.random() < probability ? 1 : 0
+    }
   }
 
   return gridItems;

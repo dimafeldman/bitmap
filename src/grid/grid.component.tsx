@@ -5,7 +5,7 @@ import styles from './grid.component.module.scss';
 
 interface Props {
   grid: number[][];
-  gridSize: { x: number, y: number }
+  gridSize: { x: number, y: number };
   gridWidth: number;
   gridHeight: number;
 }
@@ -13,18 +13,17 @@ interface Props {
 export const GridComponent: FC<Props> = ({ gridSize, gridWidth, gridHeight }) => {
   return (
     <div className="grid">
-        <Grid
-          columnCount={gridSize.x}
-          rowCount={gridSize.y}
-          height={gridHeight}
-          width={gridWidth}
-          columnWidth={15}
-          rowHeight={15}
-          className={styles.gridContent}
-        >
-          {GridCell}
-        </Grid>
-
+      <Grid
+        columnCount={gridSize.x}
+        rowCount={gridSize.y}
+        height={gridHeight}
+        width={gridWidth}
+        columnWidth={15}
+        rowHeight={15}
+        className={styles.gridContent}
+      >
+        {GridCell}
+      </Grid>
     </div>
   );
 };

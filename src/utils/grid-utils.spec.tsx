@@ -4,7 +4,7 @@ import {generateGrid
 describe('grid utils', () => {
 
   it('should create correct size grid', async () => {
-    const grid = generateGrid(10, 10);
+    const grid = generateGrid(10, 10, 1);
 
     expect(grid.length).toBe(10);
     expect(grid[0].length).toBe(10);

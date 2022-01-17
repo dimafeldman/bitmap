@@ -1,5 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import './header.component.scss';
+import React, { FC, useCallback, useEffect,  useState } from 'react';
 import { HeaderComponent } from './header.component';
 import { useGrid } from '../hooks/use-grid';
 

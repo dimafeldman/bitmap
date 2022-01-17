@@ -1,0 +1,31 @@
+@import "../vars";
+
+.gridContent {
+  border: 2px #fff solid;
+  border-top-color: $grey1;
+  border-left-color: $grey1;
+}
+
+.gridRow {
+  display: flex;
+}
+
+.gridCell {
+  width: 15px;
+  height: 15px;
+  line-height: 16px;
+  font-weight: 800;
+  background: $grey2;
+  border: 1px #fff solid;
+  border-bottom: 0;
+  border-right: 0;
+  border-top-color: $grey1;
+  border-left-color: $grey1;
+  user-select: none;
+}
+
+.gridCellActive {
+  border-width: 2px;
+  border-right-color: $grey1;
+  border-bottom-color: $grey1;
+}

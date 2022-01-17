@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC } from 'react';
-import './header.component.scss';
+import styles from './header.component.module.scss';
 
 interface Props {
   gridX: number;
@@ -12,16 +12,16 @@ interface Props {
 
 export const HeaderComponent: FC<Props> = ({ gridX, gridY, islandsCount, onChangeX, onChangeY, onFaceClick }) => {
   return (
-    <div className="header">
-      <div className="counter-wrap">
+    <div className={styles.header}>
+      <div className={styles.counterWrap}>
         <label>Grid size:</label>
-        <input className="counter" type="text" value={gridX} onChange={onChangeX} pattern="\d*" />
-        <input className="counter" type="text" value={gridY} onChange={onChangeY} pattern="\d*" />
+        <input className={styles.counter} type="text" value={gridX} onChange={onChangeX} pattern="\d*" />
+        <input className={styles.counter} type="text" value={gridY} onChange={onChangeY} pattern="\d*" />
       </div>
-      <div className="face" onClick={onFaceClick} />
-      <div className="counter-wrap">
+      <div className={styles.face} onClick={onFaceClick} />
+      <div className={styles.counterWrap}>
         <label>Islands:</label>
-        <div className="counter">{islandsCount}</div>
+        <div className={styles.counter}>{islandsCount}</div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { GridCell } from './grid-cell.component';
 import { FixedSizeGrid as Grid } from 'react-window';
-import './grid.component.scss';
+import styles from './grid.component.module.scss';
 
 interface Props {
   grid: number[][];
@@ -20,7 +20,7 @@ export const GridComponent: FC<Props> = ({ gridSize, gridWidth, gridHeight }) =>
           width={gridWidth}
           columnWidth={15}
           rowHeight={15}
-          className="grid-content"
+          className={styles.gridContent}
         >
           {GridCell}
         </Grid>

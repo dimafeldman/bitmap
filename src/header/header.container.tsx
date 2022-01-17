@@ -5,9 +5,9 @@ import { useGrid } from '../hooks/use-grid';
 interface Props {}
 export const Header: FC<Props> = () => {
   const islandsCount = 10;
-  const { createGrid } = useGrid();
-  const [gridX, setGridX] = useState(10);
-  const [gridY, setGridY] = useState(10);
+  const { createGrid, gridSize } = useGrid();
+  const [gridX, setGridX] = useState(gridSize.x);
+  const [gridY, setGridY] = useState(gridSize.y);
 
   const handleChangeX = useCallback((e) => {
     const sanitized = sanitizeInput(e.target.value);

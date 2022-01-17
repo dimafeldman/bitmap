@@ -1,4 +1,5 @@
 import React, { createContext, FC, useCallback, useContext, useEffect, useState } from 'react';
+import { getGridSizeToFitScreen } from '../utils';
 const worker = new Worker(new URL('../grid-worker.ts', import.meta.url));
 
 interface GridData {
@@ -15,7 +16,7 @@ export const useGrid = () => useContext(GridContext);
 export const GridProvider: FC = ({ children }) => {
   const [grid, setGrid] = useState([] as number[][]);
   const [gridInProgress, setGridInProgress] = useState(false);
-  const [gridSize, setGridSize] = useState({ x: 0, y: 0});
+  const [gridSize, setGridSize] = useState(getGridSizeToFitScreen());
   const [probability, setProbability] = useState(0.1);
 
   const createGrid = useCallback(

@@ -4,8 +4,7 @@ import { useGrid } from '../hooks/use-grid';
 
 interface Props {}
 export const Header: FC<Props> = () => {
-  const islandsCount = 10;
-  const { createGrid, gridSize, gridInProgress } = useGrid();
+  const { createGrid, gridSize, gridInProgress, islandsCount } = useGrid();
   const [gridX, setGridX] = useState(gridSize.x);
   const [gridY, setGridY] = useState(gridSize.y);
 

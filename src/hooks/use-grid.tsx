@@ -8,6 +8,7 @@ interface GridData {
   createGrid: (gridX: number, gridY: number) => void;
   gridSize: { x: number, y: number };
   gridValueAtIndex: (x: number, y: number) => number;
+  islandsCount: number;
 }
 
 const GridContext = createContext({} as GridData);
@@ -18,6 +19,7 @@ export const GridProvider: FC = ({ children }) => {
   const [gridInProgress, setGridInProgress] = useState(false);
   const [gridSize, setGridSize] = useState(getGridSizeToFitScreen());
   const [probability, setProbability] = useState(0.1);
+  const [islandsCount, setIslandsCount] = useState(0);
 
   const createGrid = useCallback(
     (x, y) => {
@@ -36,8 +38,9 @@ export const GridProvider: FC = ({ children }) => {
   );
 
   useEffect(() => {
-    worker.onmessage = ({ data: { grid } }) => {
+    worker.onmessage = ({ data: { grid, count } }) => {
       setGrid(grid);
+      setIslandsCount(count);
       setGridInProgress(false);
     };
 
@@ -48,7 +51,7 @@ export const GridProvider: FC = ({ children }) => {
 
 
   return (
-    <GridContext.Provider value={{ grid, createGrid, gridInProgress, gridSize, gridValueAtIndex }}>
+    <GridContext.Provider value={{ grid, createGrid, gridInProgress, gridSize, gridValueAtIndex, islandsCount }}>
       {children}
     </GridContext.Provider>
   );

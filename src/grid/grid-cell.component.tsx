@@ -10,7 +10,8 @@ interface Props {
 
 export const GridCell: FC<Props> = ({ columnIndex, rowIndex, style }) => {
   const { gridValueAtIndex } = useGrid();
-  const gridStyle = gridValueAtIndex(columnIndex, rowIndex) ? `${styles.gridCell} ${styles.gridCellActive}` : styles.gridCell;
+  const value = gridValueAtIndex(columnIndex, rowIndex);
+  const gridStyle = value ? `${styles.gridCell} ${styles.gridCellActive} grid-color-${value % 100}` : styles.gridCell;
 
   return <div style={style} className={gridStyle} />;
 };

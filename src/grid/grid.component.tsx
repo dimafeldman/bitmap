@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { GridCell } from './grid-cell.component';
 import { FixedSizeGrid as Grid } from 'react-window';
 import styles from './grid.component.module.scss';
+import './grid.component.scss';
 
 interface Props {
   grid: number[][];

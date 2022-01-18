@@ -29,7 +29,7 @@ export function generateGrid(gridX: number, gridY: number, probability: number):
   return gridItems;
 }
 
-export function countIslands(grid: number[][]): number {
+export function countIslands(grid: number[][]): { count: number, gridClone: number[][] } {
   let count = 0;
   const gridClone = JSON.parse(JSON.stringify(grid));
   const gridX = gridClone.length;
@@ -37,22 +37,22 @@ export function countIslands(grid: number[][]): number {
 
   for (let i = 0; i < gridX; i++) {
     for (let j = 0; j < gridY; j++) {
-      if (gridClone[i][j]) {
+      if (gridClone[i][j] === 1) {
         count++;
-        markNeighbors(i, j, gridClone);
+        markNeighbors(i, j, gridClone, count + 1);
       }
     }
   }
 
-  return count;
+  return { count, gridClone };
 }
 
-function markNeighbors(gridX: number, gridY: number, grid: number[][]) {
+function markNeighbors(gridX: number, gridY: number, grid: number[][], islandIndex: number) {
   for (let i = gridX - 1; i <= gridX + 1; i++) {
     for (let j = gridY - 1; j <= gridY + 1; j++) {
       if (grid?.[i]?.[j] === 1) {
-        grid[gridX][gridY] = 0;
-        markNeighbors(i, j, grid);
+        grid[gridX][gridY] = islandIndex;
+        markNeighbors(i, j, grid, islandIndex);
       }
     }
   }
